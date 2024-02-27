@@ -30,8 +30,13 @@ body{
 
 form{
     background-color: var(--BG_LIGHT);
+    border-width: 3px;
+    border-color: var(--RED_DARKER);
 }
 
+h3{
+  color: var(--TEXT_LIGHT);
+}
 body {
     margin: 0;
     padding: 0;
