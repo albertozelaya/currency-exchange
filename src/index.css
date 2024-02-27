@@ -24,14 +24,13 @@
   }
   
 
-body{
-    background-color: var(--RED_DARK);
-}
-
 form{
     background-color: var(--BG_LIGHT);
     border-width: 3px;
     border-color: var(--RED_DARKER);
+}
+div{
+  border-color: var(--RED_DARKER);
 }
 
 h3{

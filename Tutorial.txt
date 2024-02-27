@@ -1,0 +1,59 @@
+#PRIMERO INICIA EN EL .env , AHI SE ESTABLECEN LOS ENLACES:>.env
+# Desarrollo
+VITE_BASE_API_URL=http://172.20.19.11:8000
+VITE_API_KEY=Y1qR6QWFBJLvaRCHMZs2SEF0aVXnNX5V
+
+# QA (Pre Producción)
+#VITE_BASE_API_URL=http://172.20.19.14:8000
+#VITE_API_KEY=LR5EzljJQdlJPegDsWCmIXtyDrKnjt3S
+
+#LUEGO SE SIGUE CON EL API DE banhcafeAPI>api
+#MEDIANTE CONT API_URL Y API_KEY se le asignan los "import.meta.env.VITE_NOMBRE_ENV;
+
+#SE CREA UNA INSTANCIA CON LA URLBASE DE LA API RECIEN EXTRAIDA
+const banhcafeAPI = axios.create({
+ baseURL: API_URL,
+});
+
+#SE CONSFIGURA EL HEADER, ESTO ES LO ESCENCIAL
+banhcafeAPI.interceptors.request.use((config) => {
+  config.headers = {
+  ...config.headers,
+    };
+  return config;
+})
+export default banhcafeAPI;
+
+#LUEGO SE CREA UN CUSTOM HOOK USANDO USESTATE
+// Estado para almacenar la tasa de cambio
+    const [exchangeRate, setExchangeRate] = useState(null)
+
+// Función asincrónica para obtener la tasa de cambio desde la API
+const startGetCurrencyExchange = async () => {
+    // Realiza una solicitud GET a la ruta "/exchangerate" de la API
+    //trycatch del async donde se obtiene el valor del url API.get
+    try {
+        const {data} = await banhcafeAPI.get("/exchangerate")
+        setExchangeRate(data)
+    } catch (error) {
+        console.log(error)
+    }
+
+    //se extrae valor inicial y el async
+    return {
+    exchangeRate,
+    startGetCurrencyExchange
+  }
+}
+
+#SE PROSIGUE FINALMENTE CON EL App.jsx
+//SE OBTIENEN LOS VALORES DEL HOOK, CON EL DESTRUCTORY SE EXTRAEN LOS VALORES DEL HOOK
+const {exchangeRate, startGetCurrencyExchange} = useCurrency()
+  //UN USEFFECT DEL ASYNC RETURN NO NECESARIO, THIRD VACIO
+  useEffect(() => {
+    startGetCurrencyExchange()
+  }, [])
+
+#Y EN EL RETURN HTML <></>
+<p className=''>L. {`${exchangeRate?.usdBuy}`}</p>
+#PARA EXTRAER EL VALOR DEL ARRAY QUE EL ENLACE NOS DA, SE EXTRAEN LAS PROPIEDADES la const del app.jsx del saync del hook
