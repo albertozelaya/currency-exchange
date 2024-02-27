@@ -28,19 +28,19 @@ export const App = () => {
         <h1 className=" ms-4 tracking-wide py-2 ps-8">Tasa de Cambio</h1>
         </div>
 
-        <div className='flex-auto w-24 text-center lg:text-2xl xl:text-4xl 2xl:text-7xl'>
-        <h3 className="tracking-wide my-2 ">Compra:</h3>
-        <p className=''>L. {`${exchangeRate?.usdBuy}`}</p>
+        <div className='flex-auto w-24 2xl:w-40 text-center lg:text-2xl xl:text-4xl 2xl:text-7xl 2xl:me-8 2xl:-ms-8'>
+            <h3 className="tracking-wide my-2 ">Compra:</h3>
+            <p className=' 2xl:text-8xl'>L. {`${exchangeRate?.usdBuy}`}</p>
         </div>
 
-        <div className='flex-auto w-24 text-center lg:text-2xl xl:text-4xl 2xl:text-7xl'>
-          <h3 className="tracking-wide my-2 ">Venta:</h3>
-          <p className=''>L. {`${exchangeRate?.usdSale}`}</p>
+        <div className='flex-auto w-24 2xl:w-40 text-center lg:text-2xl xl:text-4xl 2xl:text-7xl '>
+            <h3 className="tracking-wide my-2 ">Venta:</h3>
+            <p className=' 2xl:text-8xl'>L. {`${exchangeRate?.usdSale}`}</p>
         </div>
 
       </form>
 
-      <div className='grid grid-cols-3 items-center px-2 -my-1'>
+      <div className='grid grid-cols-3 items-center px-2 my-10'>
 
         <div className='p-3'>
           <a href="https://apps.apple.com/us/app/banhcafe-online/id6449547967">
