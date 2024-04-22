@@ -5,7 +5,7 @@ const API_URL = import.meta.env.VITE_BASE_API_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 // Crea una instancia de cliente Axios con la URL base de la API
-//Creacion de la constante
+//Creacion de la constante segundo commit
 const banhcafeAPI = axios.create({
  baseURL: API_URL,
 });
